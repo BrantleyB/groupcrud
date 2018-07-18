@@ -4,11 +4,19 @@ const mongoose = require('mongoose');
 
 app.use(express.json());
 app.use(express.static('public'));
-// const listController = require('./controllers/shoplist.js');
-// app.use('/shoplist', listController);
+const listController = require('./controllers/shoplist.js');
+app.use('/items', listController);
 
 
-mongoose.connect('mongodb://localhost:27017/shoplist');
+mongoose.connect('mongodb://localhost:27017/shoplist', { useNewUrlParser: true } );
+
+app.get('/', (req, res) => {
+  res.send('hello');
+})
+
+app.get('/', (req, res) => {
+  res.send('hello');
+})
 
 app.listen(3000, ()=>{
     console.log('listening...');
