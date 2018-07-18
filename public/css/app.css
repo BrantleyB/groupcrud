@@ -61,10 +61,10 @@ fieldset {
 #itemDiv {
   width:100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-direction: row;
   padding: 5px;
-  margin-bottom:
+  margin-bottom: 10px;
 }
 #nums {
   font-family: 'whateverB', serif;
@@ -72,13 +72,15 @@ fieldset {
 }
 #dets {
   text-align: left;
-  width: 150px;
+  width: 160px;
+  margin-left: 30px;
 }
 #commands {
   display: flex;
   flex-direction: column;
   text-align: left;
   width: 400px;
+  margin-left: 55px;
 }
 #commands a {
   margin-top: 20px;
