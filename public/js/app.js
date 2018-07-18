@@ -9,7 +9,9 @@ app.controller('MyController', ['$http', function($http){
       url:'/items',
       data: {
         name:this.name,
-        qty:this.qty
+        qty:this.qty,
+        price:this.price,
+        coupons:this.coupons
       }
     }).then(function(response){
       controller.getItems();
@@ -42,7 +44,9 @@ app.controller('MyController', ['$http', function($http){
       url: '/items/' + item._id,
       data: {
         name:this.updatedName,
-        qty:this.updatedQty
+        qty:this.updatedQty,
+        price:this.updatedPrice,
+        coupons:this.updatedCoupons
       }
     }).then(
       function(response){
