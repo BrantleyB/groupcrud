@@ -19,8 +19,8 @@
   <input type="submit" value="Add New Item"/>
 </form>
 
-    <div id="bookmarkRollodex">
-      <div id="bookmarkDiv" ng-repeat="item in ctrl.Items">
+    <div id="itemRollodex">
+      <div id="itemDiv" ng-repeat="item in ctrl.Items">
         <span id="nums">{{ $index }}.</span>
         <div id="dets" ng-if="$index != ctrl.indexOfEditFormToShow">
           <p>

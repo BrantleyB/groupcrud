@@ -54,11 +54,11 @@ input[type=submit] {
 fieldset {
   border:0px;
 }
-#bookmarkRollodex {
+#itemRollodex {
   margin: 35px auto;
   width: 750px;
 }
-#bookmarkDiv {
+#itemDiv {
   width:100%;
   display: flex;
   justify-content: space-between;
@@ -89,7 +89,7 @@ fieldset {
 #item {
   float: right;
 }
-#bookmarkDiv img {
+#itemDiv img {
   height:25px;
 }
 #links {
