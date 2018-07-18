@@ -23,6 +23,7 @@ app.controller('MyController', ['$http', function($http){
       url:'/items'
     }).then(function(response){
       controller.Items = response.data;
+      console.log(controller.Items);
     })
   }
   this.deleteItem = function(item){
