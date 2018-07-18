@@ -2,7 +2,7 @@ const app = angular.module('MyApp', []);
 
 app.controller('MyController', ['$http', function($http){
   const controller = this;
-  this.indexOfEditFormToShow = 1;
+  controller.indexOfEditFormToShow = null;
   this.createItem = function(){
     $http({
       method:'POST',
@@ -52,6 +52,7 @@ app.controller('MyController', ['$http', function($http){
     }).then(
       function(response){
         controller.getItems();
+        controller.indexOfEditFormToShow = null;
       },
       function(error){
 
