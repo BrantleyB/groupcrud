@@ -11,14 +11,12 @@
 <h1> Shopping List: </h1>
   <ul>
     <li
-    ng-repeat="item in ctrl.Items">
-    {{ item.name }}
-    {{ item.qty }}
+    ng-repeat="item in ctrl.items">
     <button ng-click="ctrl.deleteItem(item)">Purchase Item</button>
     <a href="#" ng-click="ctrl.indexOfEditFormToShow = $index">Edit This Todo</a>
     <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editItem(item);">
       <input type="text" ng-model="ctrl.updatedName" placeholder="name" />
-      <input type="number" ng-model="ctrl.updatedQty" placeholder="quantity" />
+      <input type="number" ng-model="ctrl.updatedQTY" placeholder="quantity" />
       <input type="submit" value="Update Item">
     </form>
   </li>
