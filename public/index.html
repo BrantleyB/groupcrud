@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="MyApp">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js" charset="utf-8"></script>
+  <script src="/js/app.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body ng-controller="MyController as ctrl">
+<h1> Shopping List: </h1>
+  <ul>
+    <li
+    ng-repeat="item in ctrl.items">
+    <button ng-click="ctrl.deleteItem(item)">Purchase Item</button>
+    <a href="#" ng-click="ctrl.indexOfEditFormToShow = $index">Edit This Todo</a>
+    <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editItem(item);">
+      <input type="text" ng-model="ctrl.updatedName" placeholder="name" />
+      <input type="number" ng-model="ctrl.updatedQTY" placeholder="quantity" />
+      <input type="submit" value="Update Item">
+    </form>
+  </li>
+</ul>
+<form ng-submit="ctrl.createItem()">
+  <input type="text" ng-model="ctrl.name" placeholder="name"/>
+  <input type="number" ng-model="ctrl.qty" placeholder="quantity"/>
+  <input type="submit" value="Add New Item"/>
+</form>
+</body>
+</html>
