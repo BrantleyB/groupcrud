@@ -15,28 +15,43 @@
   <input type="text" ng-model="ctrl.name" placeholder="name"/>
   <input type="number" ng-model="ctrl.qty" placeholder="quantity"/>
   <input type="number" ng-model="ctrl.price" placeholder="price" />
-  <input type="checkbox" ng-model="ctrl.coupons"/>
-    <input type="submit" value="Add New Item"/>
+  <label for="coupCheck">Coupons?</label><input id="coupCheck" type="checkbox" ng-model="ctrl.coupons"/>
+  <input type="submit" value="Add New Item"/>
 </form>
 
-  <ul>
-    <li
-    ng-repeat="item in ctrl.Items">
-    Item: {{item.name}} </br>
-    Quantity: {{item.qty}}<br />
-    Price: {{ item.price }}<br />
-    <img ng-show="item.coupons" src="/assets/coupon.png"/>
-    <button ng-click="ctrl.deleteItem(item)">Purchased Item</button>
-    <a href="#" ng-click="ctrl.indexOfEditFormToShow = $index">Edit This Item</a>
-    <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editItem(item);">
-      <input type="text" ng-model="ctrl.updatedName" placeholder="name" />
-      <input type="number" ng-model="ctrl.updatedQty" placeholder="quantity" />
-      <input type="number" ng-model="ctrl.updatedPrice" placeholder="price" />
-      <input type="checkbox" ng-model="ctrl.updatedCoupons"/>
-      <input type="submit" value="Update Item">
-    </form>
-  </li>
-</ul>
+    <div id="bookmarkRollodex">
+      <div id="bookmarkDiv" ng-repeat="item in ctrl.Items">
+        <span id="nums">{{ $index }}.</span>
+        <div id="dets" ng-if="$index != ctrl.indexOfEditFormToShow">
+          <p>
+            <span id="high">Item:</span> <span id="item">{{item.name}}</span>
+          </p>
+          <p>
+            <span id="high">Quantity: </span>
+            <span id="item">{{item.qty}}</span>
+          </p>
+          <p>
+            <span id="high">Price: </span> <span id="item">${{ item.price }}</span>
+          </p>
+          <p>
+            <span id="high">Coupons?</span> <span id="item"><img ng-show="item.coupons" src="/assets/coupon.png"/></span>
+          </p>
+        </div>
+
+        <div id="commands" ng-if="$index != ctrl.indexOfEditFormToShow">
+          <a href="#" ng-click="ctrl.deleteItem(item)">Purchased This Item</a>
+          <a href="#" ng-click="ctrl.indexOfEditFormToShow = $index">Edit This Item</a>
+        </div>
+
+        <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editItem(item);">
+          <input type="text" ng-model="ctrl.updatedName" placeholder="{{item.name}}" />
+          <input type="number" ng-model="ctrl.updatedQty" placeholder="{{item.qty}}" />
+          <input type="number" ng-model="ctrl.updatedPrice" placeholder="{{item.price}}" />
+          <input type="checkbox" ng-model="ctrl.updatedCoupons"/>
+          <input type="submit" value="Update Item">
+        </form>
+      </div>
+    </div>
 
 </body>
 </html>
